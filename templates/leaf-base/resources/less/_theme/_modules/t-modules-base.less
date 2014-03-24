@@ -1,23 +1,96 @@
 .main-nav {
-	background-color: @client-color-2;
+	background-color: @nav-color-1;
+	border-top: solid 5px @client-color-1;
 
 	&--list {
 		margin-top: 0;
 
-		a {
-			@10px: (1em * (10 / @base-text-size));
-			@15px: (1em * (15 / @base-text-size));
+		.main-nav__link {
+			@18px: (1em * (18 / @base-text-size));
+			@16px: (1em * (16 / @base-text-size));
 			
 			display: block;
-			padding: @10px @15px;
-			color: @white;
+			padding: @18px @16px;
+			color: @white;			
+			font-weight: @medium-weight;
 			text-decoration: none;
+
+			// Mixins
+
+			.text-shadow(1,1,1,@client-color-1);
 
 			&:hover,
 			&:focus,
 			&.is-current {
-				background-color: darken(@client-color-2, 10%);
+				background-color: @nav-color-2;
 			}
 		}
 	}
 }
+
+.secondary-nav {
+	background:@client-color-1;
+	position:absolute;
+	z-index:198;
+	top:100%;
+	left:0;
+	opacity:0;
+	width:100%;
+	display:block;
+
+	&:before {
+		content:"";
+		position:absolute;
+		z-index:199;
+		left:42.5%;
+		top:-5px;
+		z-index:1;
+		width:25px;
+		height:15px;
+		display:block;
+
+		// Mixins
+		.global-sprite(0,0);
+	}
+
+	li {
+		display:block;
+	}
+
+	a {		
+		@10px: (1em * (10 / @base-text-size));
+		@15px: (1em * (15 / @base-text-size));
+
+		display:block;
+		text-decoration:none;
+		text-align:center;
+		color: @white;
+		width:100%;
+		padding: @10px @15px;
+		position:relative;
+		opacity:0.9;
+
+		&:hover,
+		&:focus,
+		&.is-current {
+			opacity:1;
+		}
+
+		&:before {
+			content:"";
+			position:absolute;
+			top:0;
+			left:20%;
+			width:60%;
+			border-top: solid 1px @client-color-3;
+		}
+	}
+
+	li:first-child a:before {
+		border:0;
+	}
+}
+
+
+
+

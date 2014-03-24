@@ -1,0 +1,25 @@
+.text-shadow(@h,@v,@blur,@color) {
+	@h-shadow:				1px * @h;
+	@v-shadow:				1px * @v;
+	@blur-shadow:			1px * @blur;
+
+	@text-shadow-string:	@h-shadow @v-shadow @blur-shadow @color;
+
+	-webkit-text-shadow:	@text-shadow-string;
+	   -moz-text-shadow:	@text-shadow-string;
+	    -ms-text-shadow:	@text-shadow-string;
+	        text-shadow:	@text-shadow-string;
+}
+
+.box-shadow(@h,@v,@blur, @color) {
+	@h-shadow:				1px * @h;
+	@v-shadow:				1px * @v;
+	@blur-shadow:			1px * @blur;
+
+	@box-shadow-string:	@h-shadow @v-shadow @blur-shadow @color;
+
+	-webkit-box-shadow:	@box-shadow-string;
+	   -moz-box-shadow:	@box-shadow-string;
+	    -ms-box-shadow:	@box-shadow-string;
+	        box-shadow:	@box-shadow-string;
+}

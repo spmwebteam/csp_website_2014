@@ -120,9 +120,16 @@
     @{type}: @spacing-value; 
 }
 
-.spacing-shorthand(@type, @v-value: 5, @h-value: 5, @text-size: @base-text-size) {
-   @v-spacing-value: (1em * (@v-value / @text-size));
-   @h-spacing-value: (1em * (@h-value / @text-size));
+.spacing-shorthand(@type, @property, @value, @text-size: @base-text-size) {
+   @spacing-value: (1em * (@value / @text-size));
 
-    @{type}: @v-spacing-value @h-spacing-value;
+    @{type}-@{property}: @spacing-value;
+}
+
+
+// Image Sprite
+
+.global-sprite(@x,@y) {
+    background-image:url("@{base-path-images}global-sprite.png");
+    background-position: -(@x*@sprite-grid) -(@y*@sprite-grid);
 }

@@ -28,15 +28,15 @@
 	
 	// Styling Begins
 	margin: @20px 0 0 0;
-	padding: @10px @15px;
+	padding: @10px @20px;
 	background-color: @blue;
-	border: @1px solid @color-2;
+	border: 0;
 	color: @dark-grey;
 
 	// Mixins
 	.inline-block-fallback();
 	.size-for-font(@base-text-size);
-	.border-radius(@3px);
+	.border-radius(@5px);
 	.background-linear-gradient(0, @color-1, 100%, @color-2);
 
 	&:hover,
@@ -48,16 +48,18 @@
 
 	&.primary {
 		// Create
-		border: @1px solid @blue;
-		color: @white;
+		border: @1px solid @dark-yellow;
+		color: @black;
+		text-transform: uppercase;
+		font-weight: @semibold-weight;
 
 		// Mixins
-		.background-linear-gradient(0, @blue, 100%, @dark-blue);
+		.background-linear-gradient(0, @yellow, 100%, @dark-yellow);
 
 		&:hover,
 		&:focus {
 			// Mixins
-			.background-linear-gradient(0, @blue, 100%, @blue);
+			.background-linear-gradient(0, @yellow, 100%, @yellow);
 		}
 	}
 	&.tiny {

@@ -1,0 +1,147 @@
+// Browser Resets
+.flex-container a:active,.flexslider a:active,.flex-container a:focus,.flexslider a:focus  {
+	outline: none;
+}
+
+.slides,.flex-control-nav,.flex-direction-nav {
+	margin: 0; padding: 0; list-style: none;
+}
+
+.flexslider .slides { zoom: 1; }
+
+
+// Cleearfix
+.slides:after {
+	content: "\0020"; 
+	display: block; 
+	clear: both; 
+	visibility: hidden; 
+	line-height: 0; 
+	height: 0;
+}
+
+html[xmlns] .slides {
+	display: block;
+}
+* html .slides {
+	height: 1%;
+}
+
+// No JS Fallback
+
+.no-js .slides > li:first-child {display: block;}
+
+// Flex Slider
+
+.flexslider {
+	margin: 0;
+	padding: 0;
+	position:relative;
+
+	.slides {
+
+		> li {
+			display:none;
+			-webkit-backface-visibility: hidden;
+		}
+
+		img {
+			width: 100%; 
+			display: block;
+		}
+	}
+}
+
+
+.flex-control-nav {
+	width: 100%; 
+	position: absolute; 
+	z-index: 3;
+	bottom: 0; 
+	text-align: center;	
+
+	li {
+		margin: 0 6px; 
+		display: inline-block; 
+		zoom: 1; 
+		*display: inline;
+	}
+		
+
+}
+
+.flex-control-paging  {
+
+	// Variables
+	@50px: 1em * (10 / @base-text-size);
+
+	li a{
+		position:relative;
+		z-index:2;
+		width: 17px; 
+		height: 17px; 
+		display: block;
+		background: @white;
+		border: solid 5px @dark-green;
+		cursor: pointer; 
+		text-indent: -9999px; 
+
+
+		// Mixins
+		.border-radius(@50px);
+
+		&:hover {
+			background: lighten(yellow, 20%);
+		}
+
+		&.flex-active {
+			background: @yellow;
+		}
+	}
+
+}
+
+
+// Slide Background Images
+
+[class*='flex-slide'] {
+	position:relative;
+}
+
+.flex-slide {
+
+	&--1 {
+		background-image:url("@{base-path-images}pattern-bamboo.jpg");
+	}
+
+	&--2 {
+		background-image:url("@{base-path-images}pattern-bamboo.jpg");
+	}
+
+	&--3 {
+		background-image:url("@{base-path-images}pattern-bamboo.jpg");
+	}
+
+	&--4 {
+		background-image:url("@{base-path-images}pattern-bamboo.jpg");
+	}
+}
+
+
+// Captions 
+
+.slide-caption__container {
+	color: @white;
+	background: fade(@client-color-2, 95%);
+
+	// Mixins
+	.spacing-all(padding,15);
+}
+
+.slide-caption__border {	
+	border: 4px double lighten(@client-color-2, 15%);		
+
+	// Mixins
+	.spacing-all(padding,25);
+	
+}

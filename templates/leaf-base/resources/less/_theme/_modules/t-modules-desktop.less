@@ -1,23 +1,16 @@
-.main-nav {
-	background-color: @client-color-2;
+.main-nav__dropdown {
 
-	&--list {
-		margin-top: 0;
+	position:relative;	
 
-		a {
-			@10px: (1em * (10 / @base-text-size));
-			@15px: (1em * (15 / @base-text-size));
-			
-			display: block;
-			padding: @10px @15px;
-			color: @white;
-			text-decoration: none;
+	&:hover,
+	&:focus,
+	&.is-current {
 
-			&:hover,
-			&:focus,
-			&.is-current {
-				background-color: darken(@client-color-2, 10%);
-			}
+		background-color: @nav-color-2;		
+		
+		.secondary-nav {
+			opacity:1;			
 		}
 	}
+
 }

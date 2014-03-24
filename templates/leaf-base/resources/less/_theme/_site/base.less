@@ -4,6 +4,7 @@
 @import "@{base-path-less}_theme/_type/t-font-face-applied.less";
 @import "@{base-path-less}_theme/_type/t-type.less";
 @import "@{base-path-less}_theme/_interactive/t-buttons.less";
+@import "@{base-path-less}_theme/_interactive/t-slider.less";
 @import "@{base-path-less}_theme/_helpers/t-presentational.less";
 @import "@{base-path-less}_theme/_layout/_grid/t-grid-base.less";
 @import "@{base-path-less}_theme/_layout/lists.less";
@@ -12,5 +13,49 @@
 .wrapper {
 	width: 92%;
 	margin-left: auto;
-	margin-right: auto;
+	margin-right: auto; 
+}
+
+
+// Navigation
+
+.nav {
+	margin: 0;
+	padding-left: 0;
+	list-style: none outside none;
+	text-align: left;
+}
+
+.eyebrow-nav {
+
+	background:@light-blue url("@{base-path-images}pattern-flowers.jpg");
+
+	&--list {
+		margin-top: 0;
+
+		a {
+			@10px: (1em * (10 / @base-text-size));
+			@15px: (1em * (15 / @base-text-size));
+			
+			display: block;
+			padding: 0 @15px;
+			color: @client-color-1;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-weight: @semibold-weight;
+			position:relative;
+
+			&:hover,
+			&:focus,
+			&.is-current {
+
+				&:before {
+					content:">";
+					position:absolute;
+					left:0;
+					top:0;
+				}
+			}
+		}
+	}
 }

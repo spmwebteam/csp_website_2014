@@ -39,6 +39,7 @@ Style Guide 0.1.0
 @mq-widescreen-width:		1240;
 
 // Typographic Scale
+@great-text-size: 			48;
 @canon-text-size: 			32;
 @paragon-text-size: 		24;
 @primer-text-size: 			18;
@@ -56,19 +57,27 @@ Style Guide 0.1.0
 @grey: 						#999;
 @light-grey: 				lighten(@grey, 25%);
 @dark-grey: 				darken(@grey, 25%);
-@blue: 						#3399FF;
-@light-blue: 				lighten(@blue, 15%);
-@dark-blue: 				darken(@blue, 15%);
+@blue: 						#2047e7;
+@light-blue: 				lighten(@blue, 10%);
+@medium-blue:				#003b99;
+@dark-blue: 				#001954;
+@yellow:					#ffc900;
+@dark-yellow:				#f7c712;
+@dark-green:				#032a00;
 
 // Client Specific Colors
-@primary-color: 			@blue;
+@primary-color: 			@dark-blue;
 @client-color-1: 			@primary-color;
-@client-color-2: 			@light-blue;
-@client-color-3: 			@dark-blue;
-@client-color-4: 			@grey;
+@client-color-2: 			@medium-blue;
+@client-color-3: 			@blue;
+@client-color-4: 			@light-blue;
 @client-color-5: 			@light-grey;
 @client-color-6: 			@dark-grey;
 
+// Navigation Color
+
+@nav-color-1:				@client-color-3;
+@nav-color-2:				@client-color-2;
 
 // Text Colors
 @primary-text-color: 		@light-grey;
@@ -86,21 +95,21 @@ Style Guide 0.1.0
 @tertiary-heading-color: 	@dark-blue;
 
 // Font Declarations
-@museo-slab-700:			"Museo Slab 700", Helvetica, Arial, Verdana, serif;
-@source-sans-regular:		"Source Sans Pro", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", sans-serif;
-@source-sans-bold:			"Source Sans Pro Bold", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", Arial, sans-serif;
-@source-sans-italic:		"Source Sans Pro Italic", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", Arial, sans-serif;
-@source-sans-bold-italic:	"Source Sans Pro Bold Italic", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", Arial, sans-serif;
-// @symbolset:					"Symbolset";
-@primary-font-family: 		@source-sans-regular;
 
-@text-font:					@source-sans-regular;
-@text-font-bold:			@source-sans-bold;
-@text-font-italic:			@source-sans-italic;
-@text-font-bold-italic:		@source-sans-bold-italic;
-// @text-font-icons:			@symbolset;
-@primary-heading-font:		@museo-slab-700;
-@secondary-heading-font:		@primary-heading-font;
+@dosis:						'Dosis', Arial, sans-serif;
+@raleway:					'Raleway', Arial, sans-serif;
+
+@primary-font-family: 		@dosis;
+
+@primary-heading-font:		@dosis;
+@secondary-heading-font:	@primary-heading-font;
+
+// Font Weights
+@thin-weight:				100;
+@normal-weight:				400;
+@medium-weight:				500;
+@semibold-weight:			600;
+@bold-weight:				700;
 
 // Form Variables
 @field-focus-color:			@blue;
