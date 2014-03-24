@@ -1,0 +1,10 @@
+.background-linear-gradient(@stop1: 0, @color1: #AAA, @stop2: 100%, @color2: #BBB)
+{
+    background: @color2;
+    background: -moz-linear-gradient(top, @color1 @stop1, @color2 @stop2);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@stop1,@color1), color-stop(@stop2,@color2));
+    background: -webkit-linear-gradient(top, @color1 @stop1,@color2 @stop2);
+    background: -o-linear-gradient(top, @color1 @stop1,@color2 @stop2);
+    background: -ms-linear-gradient(top, @color1 @stop1,@color2 @stop2);
+    background: linear-gradient(to bottom, @color1 @stop1,@color2 @stop2);
+}

@@ -1,0 +1,138 @@
+/*
+
+LESS Configuration File
+
+Description:
+This file is a list of commonly used variables
+in the Leaf framework and is used to customize
+the client's build.
+
+Warning: 
+Making changes to this file will impact the framework.
+
+Style Guide 0.1.0
+
+*/
+
+// Grid Columns
+@desktop-total-cols: 		12;
+@tablet-total-cols: 		9;
+@mobile-total-cols: 		3;
+
+// Grid Margins
+@base-margin: 				36;
+@tablet-margin: 			32;
+@mobile-margin: 			24;
+
+// Vertical Rhythm
+@base-vertical:				20;
+
+// Grid Class Prefix
+@desktop-prefix: 			~"gd";
+@tablet-prefix: 			~"gt";
+@mobile-prefix: 			~"gm";
+
+// Responsive Breakpoints
+@mq-mobile-width:			480;
+@mq-tablet-width:			768;
+@mq-desktop-width:			992;
+@mq-widescreen-width:		1240;
+
+// Typographic Scale
+@canon-text-size: 			32;
+@paragon-text-size: 		24;
+@primer-text-size: 			18;
+@normal-text-size: 			16;
+@petite-text-size: 			14;
+@minion-text-size: 			12;
+
+// Baseline Typography
+@base-text-size: 			@normal-text-size;
+@body-percentage: 			100%;
+
+// Base Colors
+@white: 					#fff;
+@black: 					#000;
+@grey: 						#999;
+@light-grey: 				lighten(@grey, 25%);
+@dark-grey: 				darken(@grey, 25%);
+@blue: 						#3399FF;
+@light-blue: 				lighten(@blue, 15%);
+@dark-blue: 				darken(@blue, 15%);
+
+// Client Specific Colors
+@primary-color: 			@blue;
+@client-color-1: 			@primary-color;
+@client-color-2: 			@light-blue;
+@client-color-3: 			@dark-blue;
+@client-color-4: 			@grey;
+@client-color-5: 			@light-grey;
+@client-color-6: 			@dark-grey;
+
+
+// Text Colors
+@primary-text-color: 		@light-grey;
+@secondary-text-color: 		@dark-grey;
+@inverse-text-color: 		@white;
+@button-text-color: 		@inverse-text-color;
+
+// Link Colors
+@primary-link-color: 		@blue;
+@primary-link-hover: 		@light-blue;
+
+// Heading Colors
+@primary-heading-color: 	@light-blue;
+@secondary-heading-color: 	@dark-grey;
+@tertiary-heading-color: 	@dark-blue;
+
+// Font Declarations
+@museo-slab-700:			"Museo Slab 700", Helvetica, Arial, Verdana, serif;
+@source-sans-regular:		"Source Sans Pro", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", sans-serif;
+@source-sans-bold:			"Source Sans Pro Bold", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", Arial, sans-serif;
+@source-sans-italic:		"Source Sans Pro Italic", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", Arial, sans-serif;
+@source-sans-bold-italic:	"Source Sans Pro Bold Italic", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", Arial, sans-serif;
+// @symbolset:					"Symbolset";
+@primary-font-family: 		@source-sans-regular;
+
+@text-font:					@source-sans-regular;
+@text-font-bold:			@source-sans-bold;
+@text-font-italic:			@source-sans-italic;
+@text-font-bold-italic:		@source-sans-bold-italic;
+// @text-font-icons:			@symbolset;
+@primary-heading-font:		@museo-slab-700;
+@secondary-heading-font:		@primary-heading-font;
+
+// Form Variables
+@field-focus-color:			@blue;
+
+// Tables
+@table-border-color: 		@light-grey;
+
+// Sprite Variables
+@sprite-grid:				50px;
+
+@base-path-images: ~"/templates/leaf-base/resources/images/";
+
+
+// TODO: Horizontal Margins and Vertical Margins need to live somewhere else.
+
+// Horizontal Margins
+// 
+// Take the base grid margin, divide it (if necessary), then divide 
+// the result by the `body`'s base text size. Convert to ems.
+
+@full-side: 1em * ((@base-margin / 2) / @base-text-size);
+@half-side: 1em * ((@base-margin / 4) / @base-text-size);
+@quarter-side: 1em * ((@base-margin / 8) / @base-text-size);
+@double-side: 1em * (@base-margin / @base-text-size);
+
+// Vertical Margins
+// 
+// Take the base vertical unit, divide it (if necessary), then divide 
+// the result by the `body`'s base text size. Convert to ems.
+
+@full-vertical: 1em * (@base-vertical / @base-text-size);
+@half-vertical: 1em * ((@base-vertical / 2) / @base-text-size);
+@quarter-vertical: 1em * ((@base-vertical / 4) / @base-text-size);
+@eighth-vertical: 1em * ((@base-vertical / 8) / @base-text-size);
+@double-vertical: 1em * ((@base-vertical * 2) / @base-text-size);

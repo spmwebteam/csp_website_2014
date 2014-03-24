@@ -1,0 +1,63 @@
+/*
+
+Example Markup:
+
+<div class="gt-row">
+	<div class="gt-columns gt-3of9">
+		Some Content
+	</div>
+	<div class="gt-columns gt-3of9">
+		Some Content
+	</div>
+	<div class="gt-columns gt-3of9">
+		Some Content
+	</div>
+</div>
+
+*/
+
+.gt-row {
+    .row(@base-margin);
+
+    &.gt-rtl    {
+        .gt-columns {
+            float:  right;
+        }
+    }
+    &.gt-ltr    {
+        .gt-columns {
+            float:  left;
+        }
+    }
+}
+
+.gt-columns {
+	.grid-column();
+	.grid-padding(@tablet-margin);
+}
+
+.gt-clear {
+    clear: both;
+}
+
+.gt-full {
+	width: 100%;
+}
+.gt-three-quarters {
+	width: 75%;
+}
+.gt-half {
+	width: 50%;
+}
+.gt-quarter {
+	width: 25%;
+}
+.gt-two-thirds {
+	width: 66.66666666666666%;
+}
+.gt-third {
+	width: 33.33333333333333%;
+}
+
+// Tablet
+.grid-loop-params(@tablet-total-cols, @tablet-total-cols, @tablet-prefix);

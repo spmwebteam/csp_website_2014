@@ -1,0 +1,167 @@
+/*
+
+Type Size Applied
+
+Description:
+Type defined in config is being applied.
+
+Markup Examples:
+<p class="canon-text">The cow jumped over the moon</p>
+<p class="paragon-text">The cow jumped over the moon</p>
+<p class="primer-text">The cow jumped over the moon</p>
+<p class="normal-text">The cow jumped over the moon</p>
+<p class="petite-text">The cow jumped over the moon</p>
+<p class="minion-text">The cow jumped over the moon</p>
+
+*/
+
+// Canon Text
+.canon-text {
+	.size-for-font(@canon-text-size);
+}
+
+// Paragon Text
+.paragon-text {
+	.size-for-font(@paragon-text-size);
+}
+
+// Primer Text
+.primer-text {
+	.size-for-font(@primer-text-size);
+}
+
+// Normal Text
+.normal-text {
+	.size-for-font(@normal-text-size);
+}
+
+// Petite Text
+.petite-text {
+	.size-for-font(@petite-text-size);
+}
+
+// Minion Text
+.minion-text {
+	.size-for-font(@minion-text-size);
+}
+
+/*
+
+Headings
+
+Markup Example:
+<h1 class="primary-heading">This is a Primary Heading</h1>
+
+Description:
+Headings within a wysiwyg can have some default size
+styling applied since it will be client and copywriter
+manageable.
+
+*/
+
+// Primary Heading
+.primary-heading {
+	color: @primary-heading-color;
+	font-family: @primary-heading-font;
+}
+
+// Secondary Heading
+.secondary-heading {
+	color: @secondary-heading-color;
+	font-family: @secondary-heading-font;
+}
+
+// Tertiary Heading
+.tertiary-heading {
+	color: @tertiary-heading-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: @full-vertical;
+}
+
+.wysiwyg h1 {
+	.canon-text;
+}
+.wysiwyg h2 {
+	.paragon-text;
+}
+.wysiwyg h3 {
+	.primer-text;
+}
+.wysiwyg h4 {
+	.normal-text;
+}
+
+/*
+
+Ordered List
+
+Class Sets To Use:
+Literally copy the two lines below and paste them outside
+of this comment and begin styling them.
+
+.wysiwyg ol {}
+.ordered-list {}
+
+*/
+
+
+
+/*
+
+Unordered List
+
+Class Sets To Use:
+Literally copy the two lines below and paste them outside
+of this comment and begin styling them.
+
+.wysiwyg ul {}
+.unordered-list {}
+
+*/
+
+
+
+/*
+
+Blockquotes
+
+Class Sets To Use:
+Literally copy the two lines below and paste them outside
+of this comment and begin styling them.
+
+.wysiwyg blockquote {}
+.blockquote {}
+
+*/
+
+
+
+/*
+
+Body Text
+
+*/
+
+html,
+body {
+	font-size: @body-percentage;
+	font-family: @primary-font-family;
+}
+
+/*
+
+Paragraph Defaults
+
+*/
+
+p {
+	line-height: 1.5em;
+}
+

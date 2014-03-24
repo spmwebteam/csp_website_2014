@@ -1,0 +1,57 @@
+/*
+
+Example Markup:
+
+<div class="gd-row">
+	<div class="gd-columns gd-3of12">
+		Some Content
+	</div>
+	<div class="gd-columns gd-3of12">
+		Some Content
+	</div>
+	<div class="gd-columns gd-3of12">
+		Some Content
+	</div>
+</div>
+
+*/
+
+.gm-row {
+    .row(@base-margin);
+
+    &.gm-rtl    {
+        .gd-columns {
+            float:  right;
+        }
+    }
+    &.gm-ltr    {
+        .gd-columns {
+            float:  left;
+        }
+    }
+}
+
+.gm-columns {
+	.grid-column();
+	.grid-padding(@mobile-margin);
+}
+
+.gm-clear {
+    clear: both;
+}
+
+.gm-full {
+	width: 100%;
+}
+.gm-half {
+	width: 50%;
+}
+.gm-two-thirds {
+	width: 66.66666666666666%;
+}
+.gm-third {
+	width: 33.33333333333333%;
+}
+
+// Mobile
+.grid-loop-params(@mobile-total-cols, @mobile-total-cols, @mobile-prefix);

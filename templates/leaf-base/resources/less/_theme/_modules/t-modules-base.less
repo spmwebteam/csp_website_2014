@@ -1,0 +1,23 @@
+.main-nav {
+	background-color: @client-color-2;
+
+	&--list {
+		margin-top: 0;
+
+		a {
+			@10px: (1em * (10 / @base-text-size));
+			@15px: (1em * (15 / @base-text-size));
+			
+			display: block;
+			padding: @10px @15px;
+			color: @white;
+			text-decoration: none;
+
+			&:hover,
+			&:focus,
+			&.is-current {
+				background-color: darken(@client-color-2, 10%);
+			}
+		}
+	}
+}

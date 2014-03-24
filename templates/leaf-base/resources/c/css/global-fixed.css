@@ -1,0 +1,1270 @@
+/*
+
+LESS Configuration File
+
+Description:
+This file is a list of commonly used variables
+in the Leaf framework and is used to customize
+the client's build.
+
+Warning: 
+Making changes to this file will impact the framework.
+
+Style Guide 0.1.0
+
+*/
+/*
+
+Responsive Grid Builder
+
+Description:
+This is a complicated LESS loop that runs and creates 
+classes for almost every grid type possible. This solution
+also replaces offsets by allowing more control.
+
+Class Syntax Exaples:
+The two examples below equate to 25% of the container width
+and are therefore interchangable.
+
+Example 1: 	gd-3of12: [prefix] - [itteration / percentage] of [total grid columns] 
+Example 2: 	gd-quarter: [prefix] - [whole word representation] 
+
+*/
+/*
+
+HTML5 Display Definitions
+
+Set the appropriate `display` definitions for new HTML5 elements.
+
+The majority will be displayed `block`.
+
+*/
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+/*
+
+Some, however, need to be `inline-block` with an IE7 fallback.
+
+*/
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+.lte7 audio,
+.lte7 canvas,
+.lte7 video {
+  display: inline;
+  zoom: 1;
+}
+/*
+
+Audio
+
+From Normalize.css:
+
+> Prevents modern browsers from displaying `audio` without controls.
+> Remove excess height in iOS5 devices.
+
+*/
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden] {
+  display: none;
+}
+img {
+  max-width: 100%;
+  border: 0;
+}
+.lte7 img {
+  -ms-interpolation-mode: bicubic;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+form {
+  margin: 0;
+}
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+legend {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  display: block;
+  white-space: normal;
+}
+.lte7 legend {
+  margin-left: -7px;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  display: block;
+}
+button .lte7,
+input .lte7,
+select .lte7,
+textarea .lte7 {
+  vertical-align: middle;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  display: inline-block;
+  cursor: pointer;
+}
+button .lte7,
+html input[type="button"] .lte7,
+input[type="reset"] .lte7,
+input[type="submit"] .lte7 {
+  overflow: visible;
+  display: inline;
+  zoom: 1;
+}
+button,
+input {
+  line-height: normal;
+}
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  margin: 3px;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  vertical-align: top;
+}
+input[type="checkbox"] .lte7,
+input[type="radio"] .lte7 {
+  width: 13px;
+  height: 13px;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+a:focus,
+a:active,
+a:hover {
+  outline: 0;
+}
+table {
+  border-spacing: 0;
+}
+/*
+
+Type
+
+*/
+/*
+
+HTML Font Size Adjust
+
+1. Corrects text resizing oddly in IE6/7 when body `font-size` is set using
+   `em` units.
+2. Prevents iOS text size adjust after orientation change, without disabling
+   user zoom.
+
+*/
+html {
+  font-size: 100%;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+}
+html,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+abbr[title] {
+  border: none;
+}
+i,
+cite,
+address {
+  font-style: normal;
+}
+dfn {
+  font-style: italic;
+}
+b {
+  font-weight: normal;
+}
+strong {
+  font-weight: bold;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+blockquote,
+menu,
+ul,
+ol,
+dl,
+table,
+figure {
+  /* Display & Box Model */
+  margin: 1.25em 0 0 0;
+  /* Other */
+  font-size: 1em;
+}
+menu,
+ol,
+ul {
+  padding-left: 2.5em;
+}
+menu.unstyled,
+ol.unstyled,
+ul.unstyled {
+  padding-left: 0;
+  list-style: none outside none;
+}
+li ul,
+li ol {
+  margin-top: 0.625em;
+  margin-bottom: 0.625em;
+}
+dd {
+  margin-left: 2.5em;
+}
+blockquote {
+  padding: 1.25em 2.5em;
+}
+blockquote > :first-child {
+  margin-top: 0;
+}
+q {
+  quotes: none;
+}
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+small {
+  font-size: 1em;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/*
+
+Typography
+
+Font Face declarations to load in custom fonts.
+
+*/
+@font-face {
+  font-family: "Museo Slab 700";
+  src: url("/templates/leaf-base/resources/fonts/museo-slab/museo-slab-700.eot");
+  src: url("/templates/leaf-base/resources/fonts/museo-slab/museo-slab-700.eot?#iefix") format('embedded-opentype'), url("/templates/leaf-base/resources/fonts/museo-slab/museo-slab-700.woff") format('woff'), url("/templates/leaf-base/resources/fonts/museo-slab/museo-slab-700.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Museo 700";
+  src: url("/templates/leaf-base/resources/fonts/museo/Museo700-Regular-webfont.eot");
+  src: url("/templates/leaf-base/resources/fonts/museo/Museo700-Regular-webfont.eot?#iefix") format('embedded-opentype'), url("/templates/leaf-base/resources/fonts/museo/Museo700-Regular-webfont.woff") format('woff'), url("/templates/leaf-base/resources/fonts/museo/Museo700-Regular-webfont.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-Regular-webfont.eot");
+  src: url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-Regular-webfont.eot?#iefix") format('embedded-opentype'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-Regular-webfont.woff") format('woff'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-Regular-webfont.ttf") format('truetype'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-Regular-webfont.svg#SourceSansProRegular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro Bold";
+  src: url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-Bold-webfont.eot");
+  src: url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-Bold-webfont.eot?#iefix") format('embedded-opentype'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-Bold-webfont.woff") format('woff'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-Bold-webfont.ttf") format('truetype'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-Bold-webfont.svg#SourceSansProBold") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro Italic";
+  src: url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-It-webfont.eot");
+  src: url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-It-webfont.eot?#iefix") format('embedded-opentype'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-It-webfont.woff") format('woff'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-It-webfont.ttf") format('truetype'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-It-webfont.svg#SourceSansProItalic") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro Bold Italic";
+  src: url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-BoldIt-webfont.eot");
+  src: url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-BoldIt-webfont.eot?#iefix") format('embedded-opentype'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-BoldIt-webfont.woff") format('woff'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-BoldIt-webfont.ttf") format('truetype'), url("/templates/leaf-base/resources/fonts/source-sans-pro/SourceSansPro-BoldIt-webfont.svg#SourceSansProBoldItalic") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/*
+
+Typography
+
+Font Face declarations to load in custom fonts.
+
+*/
+.mueso-slab {
+  font-family: "Museo Slab 700", Helvetica, Arial, Verdana, serif;
+}
+.source-sans-regular {
+  font-family: "Source Sans Pro", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", sans-serif;
+}
+.source-sans-bold {
+  font-family: "Source Sans Pro Bold", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", Arial, sans-serif;
+}
+.source-sans-italic {
+  font-family: "Source Sans Pro Italic", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", Arial, sans-serif;
+}
+.source-sans-bold-italic {
+  font-family: "Source Sans Pro Bold Italic", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", Arial, sans-serif;
+}
+/*
+
+Type Size Applied
+
+Description:
+Type defined in config is being applied.
+
+Markup Examples:
+<p class="canon-text">The cow jumped over the moon</p>
+<p class="paragon-text">The cow jumped over the moon</p>
+<p class="primer-text">The cow jumped over the moon</p>
+<p class="normal-text">The cow jumped over the moon</p>
+<p class="petite-text">The cow jumped over the moon</p>
+<p class="minion-text">The cow jumped over the moon</p>
+
+*/
+.canon-text {
+  font-size: 32px;
+  font-size: 2rem;
+}
+.paragon-text {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+.primer-text {
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+.normal-text {
+  font-size: 16px;
+  font-size: 1rem;
+}
+.petite-text {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.minion-text {
+  font-size: 12px;
+  font-size: 0.75rem;
+}
+/*
+
+Headings
+
+Markup Example:
+<h1 class="primary-heading">This is a Primary Heading</h1>
+
+Description:
+Headings within a wysiwyg can have some default size
+styling applied since it will be client and copywriter
+manageable.
+
+*/
+.primary-heading {
+  color: #80bfff;
+  font-family: "Museo Slab 700", Helvetica, Arial, Verdana, serif;
+}
+.secondary-heading {
+  color: #595959;
+  font-family: "Museo Slab 700", Helvetica, Arial, Verdana, serif;
+}
+.tertiary-heading {
+  color: #0073e5;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1.25em;
+}
+.wysiwyg h1 {
+  font-size: 32px;
+  font-size: 2rem;
+}
+.wysiwyg h2 {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+.wysiwyg h3 {
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+.wysiwyg h4 {
+  font-size: 16px;
+  font-size: 1rem;
+}
+/*
+
+Ordered List
+
+Class Sets To Use:
+Literally copy the two lines below and paste them outside
+of this comment and begin styling them.
+
+.wysiwyg ol {}
+.ordered-list {}
+
+*/
+/*
+
+Unordered List
+
+Class Sets To Use:
+Literally copy the two lines below and paste them outside
+of this comment and begin styling them.
+
+.wysiwyg ul {}
+.unordered-list {}
+
+*/
+/*
+
+Blockquotes
+
+Class Sets To Use:
+Literally copy the two lines below and paste them outside
+of this comment and begin styling them.
+
+.wysiwyg blockquote {}
+.blockquote {}
+
+*/
+/*
+
+Body Text
+
+*/
+html,
+body {
+  font-size: 100%;
+  font-family: "Source Sans Pro", Helvetica, Arial, "Arial Unicode", "Lucida Sans Unicode", sans-serif;
+}
+/*
+
+Paragraph Defaults
+
+*/
+p {
+  line-height: 1.5em;
+}
+.button {
+  width: auto;
+  height: auto;
+  line-height: normal;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  -webkit-appearance: none;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  outline: 0;
+  overflow: visible;
+  cursor: pointer;
+  vertical-align: middle;
+  margin: 1.25em 0 0 0;
+  padding: 0.625em 0.9375em;
+  background-color: #3399ff;
+  border: 0.0625em solid #a6a6a6;
+  color: #595959;
+  display: inline-block;
+  font-size: 16px;
+  font-size: 1rem;
+  -webkit-border-radius: 0.1875em;
+  -moz-border-radius: 0.1875em;
+  -o-border-radius: 0.1875em;
+  border-radius: 0.1875em;
+  background: #a6a6a6;
+  background: -moz-linear-gradient(top, #cccccc 0, #a6a6a6 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #cccccc), color-stop(100%, #a6a6a6));
+  background: -webkit-linear-gradient(top, #cccccc 0, #a6a6a6 100%);
+  background: -o-linear-gradient(top, #cccccc 0, #a6a6a6 100%);
+  background: -ms-linear-gradient(top, #cccccc 0, #a6a6a6 100%);
+  background: linear-gradient(to bottom, #cccccc 0, #a6a6a6 100%);
+}
+.lte7 .button {
+  display: inline;
+  zoom: 1;
+}
+.button:hover,
+.button:focus {
+  background: #cccccc;
+  background: -moz-linear-gradient(top, #cccccc 0, #cccccc 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #cccccc), color-stop(100%, #cccccc));
+  background: -webkit-linear-gradient(top, #cccccc 0, #cccccc 100%);
+  background: -o-linear-gradient(top, #cccccc 0, #cccccc 100%);
+  background: -ms-linear-gradient(top, #cccccc 0, #cccccc 100%);
+  background: linear-gradient(to bottom, #cccccc 0, #cccccc 100%);
+}
+.button.primary {
+  border: 0.0625em solid #3399ff;
+  color: #ffffff;
+  background: #0073e5;
+  background: -moz-linear-gradient(top, #3399ff 0, #0073e5 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3399ff), color-stop(100%, #0073e5));
+  background: -webkit-linear-gradient(top, #3399ff 0, #0073e5 100%);
+  background: -o-linear-gradient(top, #3399ff 0, #0073e5 100%);
+  background: -ms-linear-gradient(top, #3399ff 0, #0073e5 100%);
+  background: linear-gradient(to bottom, #3399ff 0, #0073e5 100%);
+}
+.button.primary:hover,
+.button.primary:focus {
+  background: #3399ff;
+  background: -moz-linear-gradient(top, #3399ff 0, #3399ff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3399ff), color-stop(100%, #3399ff));
+  background: -webkit-linear-gradient(top, #3399ff 0, #3399ff 100%);
+  background: -o-linear-gradient(top, #3399ff 0, #3399ff 100%);
+  background: -ms-linear-gradient(top, #3399ff 0, #3399ff 100%);
+  background: linear-gradient(to bottom, #3399ff 0, #3399ff 100%);
+}
+.button.tiny {
+  font-size: 12px;
+  font-size: 0.75rem;
+}
+.button.small {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.button.large {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+/*
+
+Text Align
+
+Simple classes to adjust your text alignment. They can be added to individual elements or on wrapping elements (an outer `div`, perhaps) to adjust the alignment of all the child elements.
+
+The default styling:
+
+Markup:
+<p class="{$modifiers}">Aligned Text</p>
+
+.align-left - Usually the same as the site default
+.align-center - Center aligns text as well as any non-block child elements
+.align-right - Aligns things to the right
+
+*/
+.align-left {
+  text-align: left;
+}
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+.align-sub {
+  vertical-align: sub;
+}
+.align-middle {
+  vertical-align: middle;
+}
+.align-top {
+  vertical-align: top;
+}
+/*
+
+Floats
+
+Next, we have classes for floating elements.
+
+Without floating:
+
+Markup:
+<div class="panel {$modifiers} gt-third gd-third">A Floating Panel</div>
+
+.float-left - Floats the element to the left
+.float-center - Doesn't actually float, but rather sets margins to `auto`. *Requires a set width!*
+.float-right - Floats the element to the right
+
+
+*/
+.float-left {
+  float: left;
+}
+.float-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.float-right {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+/*
+
+"New Line"
+
+Turns an `inline` or `inline-block` element into a `block` one. Like magic, 
+turns whatever it touches into block.
+
+Markup:
+This is text with a <span class="new-line">span tag</span> nested inline
+
+
+*/
+.new-line {
+  display: block;
+}
+.group {
+  /* Mixins */
+}
+.lte7 .group {
+  zoom: 1;
+}
+.group:before,
+.group:after {
+  content: "\0020";
+  height: 0;
+  display: block;
+  overflow: hidden;
+}
+.group:after {
+  clear: both;
+}
+.inline-block {
+  display: inline-block;
+}
+/*
+
+"Is Hidden"
+
+Visually hides content in a way that leaves it accessible to screen readers. 
+Like more magic, makes the visible invisible.
+
+Markup:
+Now you see me<span class="is-hidden">, now you don't.</span>
+
+*/
+.is-hidden {
+  /* Mixins */
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  border: 0;
+  overflow: hidden;
+}
+.is-hidden.focusable:active,
+.is-hidden.focusable:focus {
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: auto;
+  overflow: visible;
+  position: static;
+}
+body:hover .is-hidden a,
+body:hover .is-hidden input,
+body:hover .is-hidden button {
+  display: none;
+}
+/*----Simple Reveal-----*/
+.simple-reveal-container {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  border: 0;
+  overflow: hidden;
+}
+.simple-reveal-container.focusable:active,
+.simple-reveal-container.focusable:focus {
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: auto;
+  overflow: visible;
+  position: static;
+}
+body:hover .simple-reveal-container a,
+body:hover .simple-reveal-container input,
+body:hover .simple-reveal-container button {
+  display: none;
+}
+.simple-reveal-container.is-current {
+  width: auto;
+  height: auto;
+  margin: 0;
+  position: relative;
+  clip: auto;
+}
+body:hover .simple-reveal-container.is-current a,
+body:hover .simple-reveal-container.is-current input,
+body:hover .simple-reveal-container.is-current button {
+  display: inline-block;
+}
+.lte7 body:hover .simple-reveal-container.is-current a,
+.lte7 body:hover .simple-reveal-container.is-current input,
+.lte7 body:hover .simple-reveal-container.is-current button {
+  display: inline;
+  zoom: 1;
+}
+.relative {
+  position: relative;
+}
+.media-grid {
+  margin-top: 0;
+  padding: 0;
+  letter-spacing: -0.31em;
+  word-spacing: -0.43em;
+}
+.lte7 .media-grid {
+  letter-spacing: normal;
+}
+.media-grid .object {
+  margin-top: 1.875em;
+  list-style: none outside none;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  display: inline-block;
+}
+.lte7 .media-grid .object {
+  display: inline;
+  zoom: 1;
+}
+.media-grid .object img {
+  display: block;
+}
+.media-grid .object.gm-columns,
+.media-grid .object.gt-columns,
+.media-grid .object.gd-columns {
+  float: none;
+}
+.list--x li {
+  display: inline-block;
+}
+.main-nav {
+  background-color: #80bfff;
+}
+.main-nav--list {
+  margin-top: 0;
+}
+.main-nav--list a {
+  display: block;
+  padding: 0.625em 0.9375em;
+  color: #ffffff;
+  text-decoration: none;
+}
+.main-nav--list a:hover,
+.main-nav--list a:focus,
+.main-nav--list a.is-current {
+  background-color: #4da6ff;
+}
+.wrapper {
+  width: 92%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*
+
+Example Markup:
+
+<div class="gt-row">
+	<div class="gt-columns gt-3of9">
+		Some Content
+	</div>
+	<div class="gt-columns gt-3of9">
+		Some Content
+	</div>
+	<div class="gt-columns gt-3of9">
+		Some Content
+	</div>
+</div>
+
+*/
+.gt-row {
+  margin-left: -1.125em;
+  margin-right: -1.125em;
+}
+.lte7 .gt-row {
+  zoom: 1;
+}
+.gt-row:before,
+.gt-row:after {
+  content: "\0020";
+  height: 0;
+  display: block;
+  overflow: hidden;
+}
+.gt-row:after {
+  clear: both;
+}
+.gt-row.gt-rtl .gt-columns {
+  float: right;
+}
+.gt-row.gt-ltr .gt-columns {
+  float: left;
+}
+.gt-columns {
+  display: inline;
+  float: left;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.gt-clear {
+  clear: both;
+}
+.gt-full {
+  width: 100%;
+}
+.gt-three-quarters,
+.gt-3of4,
+.gt-6of8 {
+  width: 75%;
+}
+.gt-half,
+.gt-1of2,
+.gt-2of4,
+.gt-3of6,
+.gt-4of8 {
+  width: 50%;
+}
+.gt-quarter,
+.gt-1of4,
+.gt-2of8 {
+  width: 25%;
+}
+.gt-two-thirds,
+.gt-2of3,
+.gt-4of6,
+.gt-6of9 {
+  width: 66.66666666666666%;
+}
+.gt-third,
+.gt-1of3,
+.gt-2of6,
+.gt-3of9 {
+  width: 33.33333333333333%;
+}
+.gt-8of9 {
+  width: 88.88888888888889%;
+}
+.gt-7of8 {
+  width: 87.5%;
+}
+.gt-6of7 {
+  width: 85.71428571428571%;
+}
+.gt-5of6 {
+  width: 83.33333333333334%;
+}
+.gt-4of5 {
+  width: 80%;
+}
+.gt-7of9 {
+  width: 77.77777777777779%;
+}
+.gt-5of7 {
+  width: 71.42857142857143%;
+}
+.gt-3of5 {
+  width: 60%;
+}
+.gt-5of8 {
+  width: 62.5%;
+}
+.gt-4of7 {
+  width: 57.14285714285714%;
+}
+.gt-2of5 {
+  width: 40%;
+}
+.gt-5of9 {
+  width: 55.55555555555556%;
+}
+.gt-3of7 {
+  width: 42.857142857142854%;
+}
+.gt-1of5 {
+  width: 20%;
+}
+.gt-4of9 {
+  width: 44.44444444444444%;
+}
+.gt-3of8 {
+  width: 37.5%;
+}
+.gt-2of7 {
+  width: 28.57142857142857%;
+}
+.gt-1of6 {
+  width: 16.666666666666664%;
+}
+.gt-1of7 {
+  width: 14.285714285714285%;
+}
+.gt-2of9 {
+  width: 22.22222222222222%;
+}
+.gt-1of8 {
+  width: 12.5%;
+}
+.gt-1of9 {
+  width: 11.11111111111111%;
+}
+/*
+
+Example Markup:
+
+<div class="gd-row">
+	<div class="gd-columns gd-3of12">
+		Some Content
+	</div>
+	<div class="gd-columns gd-3of12">
+		Some Content
+	</div>
+	<div class="gd-columns gd-3of12">
+		Some Content
+	</div>
+</div>
+
+*/
+.gd-row {
+  margin-left: -1.125em;
+  margin-right: -1.125em;
+}
+.lte7 .gd-row {
+  zoom: 1;
+}
+.gd-row:before,
+.gd-row:after {
+  content: "\0020";
+  height: 0;
+  display: block;
+  overflow: hidden;
+}
+.gd-row:after {
+  clear: both;
+}
+.gd-row.gd-rtl .gd-columns {
+  float: right;
+}
+.gd-row.gd-ltr .gd-columns {
+  float: left;
+}
+.gd-columns {
+  display: inline;
+  float: left;
+  padding-left: 1.125em;
+  padding-right: 1.125em;
+}
+.gd-clear {
+  clear: both;
+}
+.gd-full {
+  width: 100%;
+}
+.gd-three-quarters,
+.gd-3of4,
+.gd-6of8,
+.gd-9of12 {
+  width: 75%;
+}
+.gd-half,
+.gd-1of2,
+.gd-2of4,
+.gd-3of6,
+.gd-4of8,
+.gd-5of10,
+.gd-6of12 {
+  width: 50%;
+}
+.gd-quarter,
+.gd-1of4,
+.gd-2of8,
+.gd-3of12 {
+  width: 25%;
+}
+.gd-two-thirds,
+.gd-2of3,
+.gd-4of6,
+.gd-6of9,
+.gd-8of12 {
+  width: 66.66666666666666%;
+}
+.gd-third,
+.gd-1of3,
+.gd-2of6,
+.gd-3of9,
+.gd-4of12 {
+  width: 33.33333333333333%;
+}
+.gd-11of12 {
+  width: 91.66666666666666%;
+}
+.gd-10of11 {
+  width: 90.9090909090909%;
+}
+.gd-9of10 {
+  width: 90%;
+}
+.gd-8of9 {
+  width: 88.88888888888889%;
+}
+.gd-7of8 {
+  width: 87.5%;
+}
+.gd-6of7 {
+  width: 85.71428571428571%;
+}
+.gd-5of6 {
+  width: 83.33333333333334%;
+}
+.gd-4of5 {
+  width: 80%;
+}
+.gd-10of12 {
+  width: 83.33333333333334%;
+}
+.gd-9of11 {
+  width: 81.81818181818183%;
+}
+.gd-8of10 {
+  width: 80%;
+}
+.gd-7of9 {
+  width: 77.77777777777779%;
+}
+.gd-5of7 {
+  width: 71.42857142857143%;
+}
+.gd-3of5 {
+  width: 60%;
+}
+.gd-8of11 {
+  width: 72.72727272727273%;
+}
+.gd-7of10 {
+  width: 70%;
+}
+.gd-5of8 {
+  width: 62.5%;
+}
+.gd-4of7 {
+  width: 57.14285714285714%;
+}
+.gd-2of5 {
+  width: 40%;
+}
+.gd-7of11 {
+  width: 63.63636363636363%;
+}
+.gd-6of10 {
+  width: 60%;
+}
+.gd-5of9 {
+  width: 55.55555555555556%;
+}
+.gd-3of7 {
+  width: 42.857142857142854%;
+}
+.gd-1of5 {
+  width: 20%;
+}
+.gd-7of12 {
+  width: 58.333333333333336%;
+}
+.gd-6of11 {
+  width: 54.54545454545454%;
+}
+.gd-4of9 {
+  width: 44.44444444444444%;
+}
+.gd-3of8 {
+  width: 37.5%;
+}
+.gd-2of7 {
+  width: 28.57142857142857%;
+}
+.gd-1of6 {
+  width: 16.666666666666664%;
+}
+.gd-5of11 {
+  width: 45.45454545454545%;
+}
+.gd-4of10 {
+  width: 40%;
+}
+.gd-1of7 {
+  width: 14.285714285714285%;
+}
+.gd-5of12 {
+  width: 41.66666666666667%;
+}
+.gd-4of11 {
+  width: 36.36363636363637%;
+}
+.gd-3of10 {
+  width: 30%;
+}
+.gd-2of9 {
+  width: 22.22222222222222%;
+}
+.gd-1of8 {
+  width: 12.5%;
+}
+.gd-3of11 {
+  width: 27.27272727272727%;
+}
+.gd-2of10 {
+  width: 20%;
+}
+.gd-1of9 {
+  width: 11.11111111111111%;
+}
+.gd-2of11 {
+  width: 18.181818181818183%;
+}
+.gd-1of10 {
+  width: 10%;
+}
+.gd-2of12 {
+  width: 16.666666666666664%;
+}
+.gd-1of11 {
+  width: 9.090909090909092%;
+}
+.gd-1of12 {
+  width: 8.333333333333332%;
+}
+.main-nav {
+  background-color: #80bfff;
+}
+.main-nav--list {
+  margin-top: 0;
+}
+.main-nav--list a {
+  display: block;
+  padding: 0.625em 0.9375em;
+  color: #ffffff;
+  text-decoration: none;
+}
+.main-nav--list a:hover,
+.main-nav--list a:focus,
+.main-nav--list a.is-current {
+  background-color: #4da6ff;
+}
+.wrapper {
+  width: 80%;
+  max-width: 63em;
+  margin-left: auto;
+  margin-right: auto;
+}
+html,
+body {
+  min-width: 992px;
+}
+.wrapper {
+  width: 92%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}

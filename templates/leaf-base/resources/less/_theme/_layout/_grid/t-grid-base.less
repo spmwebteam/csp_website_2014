@@ -1,0 +1,32 @@
+.media-grid {
+    margin-top: 0;
+    padding: 0;
+    letter-spacing: -0.31em;
+    word-spacing: -0.43em;
+
+    .lte7 & {
+        letter-spacing: normal;
+    }
+    .object {
+        // Variables
+        @30px: 1em * (30 / @base-text-size);
+        
+        margin-top: @30px;
+        list-style: none outside none;
+        letter-spacing: normal;
+        word-spacing: normal;
+        vertical-align: top;
+
+        // Mixins
+        .inline-block-fallback();
+
+        img {
+            display: block;
+        }
+        &.gm-columns,
+        &.gt-columns,
+        &.gd-columns {
+            float: none;
+        }
+    }
+}

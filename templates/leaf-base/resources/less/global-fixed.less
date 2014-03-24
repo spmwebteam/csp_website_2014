@@ -1,0 +1,22 @@
+@base-path-less: ~"/templates/leaf-base/resources/less/";
+
+// Importing Required Files
+@import 'config.less';
+@import '@{base-path-less}_mixins/mixins.less';
+@import '@{base-path-less}_theme/_site/base.less';
+@import "@{base-path-less}_theme/_site/mobile.less";
+@import "@{base-path-less}_theme/_site/tablet-only.less";
+@import "@{base-path-less}_theme/_site/desktop-only.less";
+@import "@{base-path-less}_theme/_site/desktop.less";
+
+html,
+body {
+    min-width: 992px;
+}
+.wrapper {
+    width: 92%;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+

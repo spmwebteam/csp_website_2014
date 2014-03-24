@@ -1,0 +1,200 @@
+// Clearfix Mixin
+.clearfix() {
+    .lte7 & {
+        zoom:           1;
+    }
+    &:before,
+    &:after {
+        content:        "\0020";
+        height:         0;
+        display:        block;
+        overflow:       hidden;
+    }
+    &:after {
+        clear:          both;
+    }
+}
+.row(@mar: @base-margin) {
+	
+	// Variables
+	@grid-margin: (1em * (@mar / 2) / @base-text-size);
+
+	// Create
+	margin-left: -@grid-margin;
+	margin-right: -@grid-margin;
+
+	// Mixins
+	.clearfix();
+	}
+	.grid-column(@float: ~"left") {
+		display: inline;
+		float: @float;
+	}
+	.grid-padding(@mar: @base-margin) {
+
+		// Variables
+		@grid-margin: (1em * (@mar / 2) / @base-text-size);
+
+		// Create
+		padding-left: @grid-margin;
+		padding-right: @grid-margin;
+	}
+	.grid-margin(@mar: @base-margin) {
+
+		// Variables
+		@grid-margin: (1em * (@mar / 2) / @base-text-size);
+
+		// Create
+		margin-left: -@grid-margin;
+		margin-right: -@grid-margin;
+	}
+	.column(@context, @mar: @base-margin) {
+		.grid-padding(@mar);
+		.grid-column();
+	}
+
+
+
+/*
+
+Responsive Grid Builder
+
+Description:
+This is a complicated LESS loop that runs and creates 
+classes for almost every grid type possible. This solution
+also replaces offsets by allowing more control.
+
+Class Syntax Exaples:
+The two examples below equate to 25% of the container width
+and are therefore interchangable.
+
+Example 1: 	gd-3of12: [prefix] - [itteration / percentage] of [total grid columns] 
+Example 2: 	gd-quarter: [prefix] - [whole word representation] 
+
+*/
+
+.grid-loop-params(@index, @columns, @prefix) {
+
+    .grid-loop(@index) when (@index > 0) {
+        
+        @class-name: ~"@{index}of@{columns}";
+
+        // Start Second Loop
+        .grid-sub-loop(@index, @columns, @prefix) when (@index > 0) {
+
+            @output: (100% * (@index / @columns));
+
+            .loop-check(@output) 
+            when not (@output = 100%)
+            and not (@output = 75%) 
+            and not (@output = 50%) 
+            and not (@output = 25%) 
+            and not (@output = 33.33333333333333%)
+            and not (@output = 66.66666666666666%) {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    width: (100% * (@index / @columns));
+                }
+            }
+            .loop-check(@output) when (@output = 75%) and (@prefix = ~"gd") {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-three-quarters);
+                }
+
+            }
+            .loop-check(@output) when (@output = 25%) and (@prefix = ~"gd") {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-quarter);
+                }
+
+            }
+            .loop-check(@output) when (@output = 50%) and (@prefix = ~"gd"){
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-half);
+                }
+
+            }
+            .loop-check(@output) when (@output = 66.66666666666666%) and (@prefix = ~"gd") {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-two-thirds);
+                }
+
+            }
+            .loop-check(@output) when (@output = 33.33333333333333%) and (@prefix = ~"gd") {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gd-third);
+                }
+
+            }
+            .loop-check(@output) when (@output = 75%) and (@prefix = ~"gt") {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gt-three-quarters);
+                }
+
+            }
+            .loop-check(@output) when (@output = 25%) and (@prefix = ~"gt") {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gt-quarter);
+                }
+
+            }
+            .loop-check(@output) when (@output = 50%) and (@prefix = ~"gt"){
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gt-half);
+                }
+
+            }
+            .loop-check(@output) when (@output = 66.66666666666666%) and (@prefix = ~"gt") {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gt-two-thirds);
+                }
+
+            }
+            .loop-check(@output) when (@output = 33.33333333333333%) and (@prefix = ~"gt") {
+
+                // Create the class
+                .@{prefix}-@{class-name} {
+                    &:extend(.gt-third);
+                }
+
+            }
+            
+            // Make all into just "loop-check" and call once.
+            .loop-check(@output);
+
+            .grid-sub-loop(@index - 1, @columns - 1, @prefix);
+        }
+
+        .grid-sub-loop(0) {}
+        .grid-sub-loop(@index, @columns, @prefix);
+        // End Second Loop
+
+        // next iteration
+        .grid-loop(@index - 1);
+
+    }
+
+    // end the loop when index is 0
+    .grid-loop(0) {}
+    .grid-loop(@index);
+
+}
