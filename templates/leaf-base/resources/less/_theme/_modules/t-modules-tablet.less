@@ -1,0 +1,33 @@
+.main-nav {
+
+	&--list {
+
+		.main-nav__link {
+
+			&:hover,
+			&:focus,
+			&.is-current {
+				background-color: @nav-color-2;
+			}
+		}
+	}	
+}
+
+.main-nav__dropdown {
+
+	position:relative;	
+
+	&:hover,
+	&:focus,
+	&.is-current {
+
+		background-color: @nav-color-2;		
+		
+		.secondary-nav {
+			opacity:1;			
+		}
+	}
+
+}
+	
+

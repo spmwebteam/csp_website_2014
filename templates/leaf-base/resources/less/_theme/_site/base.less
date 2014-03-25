@@ -16,6 +16,10 @@
 	margin-right: auto; 
 }
 
+.inner-content {
+	.spacing-vertical(padding,75);
+}
+
 
 // Navigation
 
@@ -23,15 +27,19 @@
 	margin: 0;
 	padding-left: 0;
 	list-style: none outside none;
-	text-align: left;
 }
 
-.eyebrow-nav {
+.global-eyebrow {
+	position:relative;
+	background:@light-blue url("@{base-path-images}pattern-flowers.jpg");}
 
-	background:@light-blue url("@{base-path-images}pattern-flowers.jpg");
+.eyebrow-nav {	
 
 	&--list {
+		@15px: (1em * (15 / @base-text-size));
+
 		margin-top: 0;
+		margin: @15px 0 0 0;
 
 		a {
 			@10px: (1em * (10 / @base-text-size));
@@ -50,7 +58,7 @@
 			&.is-current {
 
 				&:before {
-					content:">";
+					content:"✔";
 					position:absolute;
 					left:0;
 					top:0;
@@ -58,4 +66,250 @@
 			}
 		}
 	}
+}
+
+.eyebrow-connect {
+	@5px: (1em * (5 / @base-text-size));
+	@15px: (1em * (15 / @base-text-size));
+
+	text-align:right;
+	padding: @15px 0;
+
+	a {
+		text-decoration: none;
+
+		&.telephone {
+			border-left: dotted 3px;
+			padding-left:@5px;
+			padding-right:@5px;
+		}
+	}
+}
+
+// Mobile Nav
+
+.mobile-nav {
+
+	// Variables
+	@5px: (1em * (5 / @base-text-size));
+	@10px: (1em * (10 / @base-text-size));
+
+	cursor:pointer;
+	margin-top:0;
+	padding: @10px 0;
+
+	
+	&--container {
+		background:@client-color-1;
+	}
+}
+
+.mobile-select {
+	position:relative;
+	text-transform: uppercase;
+	color:@white;
+
+	&:before {
+		content:"";
+		width:17px;
+		height:17px;
+		position:absolute;
+		top:5px;
+		left:0;
+		margin-left:-20px;
+
+		.global-sprite(0,1);
+	}
+}
+
+
+// Social Icons
+
+.icon {
+
+	// Variables
+	@7px: (1em * (7 / @base-text-size));
+
+	// Baseline
+	width:32px;
+	height:32px;
+	display:inline-block;
+	opacity:0.8;
+	padding:@7px 0;
+
+	&:hover {
+		opacity:1;
+	}
+
+	&.facebook {		
+		.global-sprite(1,0);
+	}
+
+	&.twitter {		
+		.global-sprite(2,0);
+	}
+
+	&.youtube {		
+		.global-sprite(3,0);
+	}
+}
+
+// Divider
+
+.divider {
+	border-bottom:0;
+	border-left:0;
+	border-right:0;
+
+	&.green {
+		border-top: solid 1px @green;
+	}
+}
+
+// Home Listing
+
+.home_listing {
+
+	// Variables
+	@15px: (1em * (15 / @base-text-size));
+	@20px: (1em * (20 / @base-text-size));
+
+	&--container {
+		border:solid 5px @client-color-2;
+
+		// Mixins
+		.border-radius(@20px);
+
+		img {
+			// Mixins
+			.border-radius-top(@15px);
+		}
+
+	}
+
+	&--box {
+		padding: @20px;
+		background:@white;
+
+		// Mixins
+		.border-radius-bottom(@15px);
+	}
+}
+
+
+// Home Offer 
+
+.home-offer {
+
+	// Variables
+	@90px: (1em * (90 / @base-text-size));
+
+	position:relative;
+	z-index:1;
+	display:block;
+	width:100%;
+	border-top: solid 7px @green;
+	border-bottom: solid 7px @green;
+	margin-bottom:@90px;
+
+	&:before, &:after {
+		content:"";
+		background:@white;
+		top:0;
+		left:0;
+		bottom:0;
+		right: 0;
+		position:absolute;
+		z-index:-2;
+	}
+
+	&:after {
+		content:"";
+		background: url("@{base-path-images}pattern-bamboo.jpg");
+		opacity:0.3;	
+		position:absolute;
+		z-index: -1;
+	}
+}
+
+.home-offer {
+
+	// Variables
+	@5px: (1em * (5 / @base-text-size));
+	@10px: (1em * (10 / @base-text-size));
+
+	&__field {
+		background: @sky-blue;
+		border: solid 2px @blue;
+		padding:@5px @10px;
+		margin-top:@10px;
+		font-family: @primary-font-family;
+
+		// Mixins
+		.border-radius(@5px);
+		.placeholder();
+	}
+
+	&__offer {
+
+	}
+}
+
+
+// Footer
+
+.main-footer {
+	position:relative;
+	background:@dark-blue;
+	color:@sky-blue;
+	border-top: solid 10px @green;
+
+	&:before {
+		content:"";
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		border-top: solid 12px darken(@green, 10%);
+	}
+
+	&--list {
+		
+		a {
+			color: @sky-blue;
+			text-decoration: none;
+			position:relative;
+			line-height:1.75em;
+
+			&:hover:after {
+				content:"";
+				position:absolute;
+				width:100%;
+				bottom:0;
+				left:0;
+				border-bottom: dotted 1px;
+			}
+		}		
+	}
+}
+
+.catalog-request {
+	
+	// Variables
+	@5px: (1em * (5 / @base-text-size));
+	@10px: (1em * (10 / @base-text-size));
+
+	&__label {
+		color:@sky-blue;
+		text-transform: uppercase;
+		font-weight: @semibold-weight;
+	}
+
+	&__field {
+		background:@medium-blue;
+		border:0;
+		margin:@10px 0;
+		padding:@5px @10px;
+	}	
+
 }

@@ -1,5 +1,43 @@
 @import "@{base-path-less}/_theme/_layout/_grid/t-grid-mobile.less";
 
+// Hidden
 .mobile-hidden {
 	display:none;
+}
+
+.main-nav {
+
+	&--list {
+
+		.main-nav__link {
+			padding-right: 0;
+			border-top: dotted 2px darken(@sky-blue, 20%);
+		}
+
+		li {
+			display:block;
+			text-align:right;
+
+			&:first-child .main-nav__link {
+				border:0;
+			}
+		}
+
+		
+	}
+
+	
+
+	&--container {
+		max-height: 0;
+		position: relative;
+		overflow: hidden;
+
+		// Mixins
+		.transition(max-height 0.5s);
+
+		&.is-expanded {
+			max-height: 100em;
+		}
+	}
 }

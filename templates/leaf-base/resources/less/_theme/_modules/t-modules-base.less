@@ -1,16 +1,19 @@
 .main-nav {
-	background-color: @nav-color-1;
-	border-top: solid 5px @client-color-1;
+
+	&--container {
+		background-color: @nav-color-1;
+		border-top: solid 5px @client-color-1;
+	}
 
 	&--list {
 		margin-top: 0;
 
 		.main-nav__link {
 			@18px: (1em * (18 / @base-text-size));
-			@16px: (1em * (16 / @base-text-size));
+			@14px: (1em * (14 / @base-text-size));
 			
 			display: block;
-			padding: @18px @16px;
+			padding: @18px @14px;
 			color: @white;			
 			font-weight: @medium-weight;
 			text-decoration: none;
@@ -18,12 +21,7 @@
 			// Mixins
 
 			.text-shadow(1,1,1,@client-color-1);
-
-			&:hover,
-			&:focus,
-			&.is-current {
-				background-color: @nav-color-2;
-			}
+		
 		}
 	}
 }

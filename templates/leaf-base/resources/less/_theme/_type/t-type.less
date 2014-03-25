@@ -68,17 +68,27 @@ manageable.
 .primary-heading {
 	color: @primary-heading-color;
 	font-family: @primary-heading-font;
+	text-transform: uppercase;
 }
 
 // Secondary Heading
-.secondary-heading {
-	color: @secondary-heading-color;
+.secondary-heading {	
 	font-family: @secondary-heading-font;
+	color: @secondary-heading-color;
+	text-transform: uppercase;
+
+	&--light {
+		font-family: @secondary-heading-font;
+		color: lighten(@secondary-heading-color, 10%);
+		text-transform: uppercase;
+	}
 }
 
 // Tertiary Heading
 .tertiary-heading {
 	color: @tertiary-heading-color;
+	font-family: @secondary-heading-font;
+	text-transform: uppercase;
 }
 
 h1,
@@ -158,6 +168,7 @@ html,
 body {
 	font-size: @body-percentage;
 	font-family: @primary-font-family;
+	background: @sky-blue;
 }
 
 /*

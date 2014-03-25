@@ -5,6 +5,7 @@
 	@10px: 1em * (10 / @base-text-size);
 	@15px: 1em * (15 / @base-text-size);
 	@20px: 1em * (20 / @base-text-size);
+	@30px: 1em * (30 / @base-text-size);
 
 	// Gradient Colors
 	@color-1: lighten(@grey, 20%);
@@ -32,6 +33,7 @@
 	background-color: @blue;
 	border: 0;
 	color: @dark-grey;
+	font-family: @primary-font-family;
 
 	// Mixins
 	.inline-block-fallback();
@@ -59,9 +61,43 @@
 		&:hover,
 		&:focus {
 			// Mixins
-			.background-linear-gradient(0, @yellow, 100%, @yellow);
+			.background-linear-gradient(0, @dark-yellow, 100%, @yellow);
 		}
 	}
+
+	&.secondary {
+		color: @white;
+		font-weight: @medium-weight;		
+		padding: @10px @30px;
+
+		// Mixins
+		.background-linear-gradient(0, @green, 100%, @medium-green);
+		.text-shadow(1,1,1,@dark-green);
+
+		&:hover,
+		&:focus {
+			// Mixins
+			.background-linear-gradient(0, @medium-green, 100%, @green);
+		}
+	}
+
+	&.tertiary {
+		color: @white;
+		font-weight: @medium-weight;		
+		padding: @10px @30px;
+		font-family: @dosis;
+
+		// Mixins
+		.background-linear-gradient(0, @blue, 100%, @medium-blue);
+		.text-shadow(1,1,1,@dark-blue);
+
+		&:hover,
+		&:focus {
+			// Mixins
+			.background-linear-gradient(0, @medium-blue, 100%, @blue);
+		}
+	}
+
 	&.tiny {
 		// Variables
 		@1px: 1em * (1 / @minion-text-size);
@@ -88,6 +124,20 @@
 
 		// Mixins
 		.size-for-font(@paragon-text-size);
+	}
+
+	&.medium {
+		// Variables
+		@1px: 1em * (1 / @primer-text-size);
+
+		// Create
+
+		// Mixins
+		.size-for-font(@primer-text-size);
+	}
+
+	&.spaced {
+		letter-spacing: 1px;
 	}
 
 }

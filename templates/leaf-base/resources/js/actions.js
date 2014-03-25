@@ -129,7 +129,7 @@ $(document).ready(function() {
             initVars: {
                 logo: $(".logo img"),
                 logoAttr: $(".logo img").attr('src'),
-                newLogoString: "/images/logo-small.png"
+                newLogoString: "http://placehold.it/770x50"
             }
         },
 

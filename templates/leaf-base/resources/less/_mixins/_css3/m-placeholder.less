@@ -1,0 +1,43 @@
+.placeholder(@font-size: @minion-text-size, @font: @primary-font-family, @color: @light-blue) {
+	
+	&::-webkit-input-placeholder { 
+		color: @color; 
+		font: @font; 
+		font-style: italic;
+		font-weight: @semibold-weight;
+		.size-for-font(@font-size);
+	}
+	
+	&:-moz-placeholder { 
+		color: @color; 
+		font: @font; 
+		font-style: italic; 
+		font-weight: @semibold-weight;
+		.size-for-font(@font-size);
+	}
+	
+	&::-webkit-input-placeholder { 
+		color: @color; 
+		font: @font; 
+		font-style: italic;
+		font-weight: @semibold-weight;
+		.size-for-font(@font-size);
+	}
+	
+	&:-moz-placeholder { 
+		color: @color; 
+		font: @font; 
+		font-style: italic;
+		font-weight: @semibold-weight;
+		.size-for-font(@font-size);
+	}
+	
+	&:-ms-input-placeholder {
+		color: @color; 
+		font: @font; 
+		font-style: italic;
+		font-weight: @semibold-weight;
+		.size-for-font(@font-size); 
+	}
+}
+
